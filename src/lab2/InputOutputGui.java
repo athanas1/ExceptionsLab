@@ -17,16 +17,17 @@ public class InputOutputGui {
     }
 
     public void startConversation() throws IllegalArgumentException {
-
+        String fullName = JOptionPane.showInputDialog("Enter full name:");
         String lastName = "";
 
         while (lastName.isEmpty()) {
-            String fullName = JOptionPane.showInputDialog("Enter full name:");
+            
             try {
                 lastName = nameService.extractLastName(fullName);
 
             } catch (IllegalArgumentException e) {
                 JOptionPane.showMessageDialog(null, "Please enter a correct name format");
+                fullName = JOptionPane.showInputDialog("Enter full name (use Format: first name, last name):");
             }
         }
         String msg = "Your Last name is:" + lastName;
