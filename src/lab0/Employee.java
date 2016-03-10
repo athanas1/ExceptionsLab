@@ -17,6 +17,8 @@ package lab0;
  * @version 1.00
  */
 public class Employee {
+    // THIS IS RIGID DO NOT DO
+    // Always check for null first
     private final int MAX_VACATION_DAYS = 28;
     private final int MIN_VACATION_DAYS = 0;
     private final int MIN_NAME_LENGTH = 2;
@@ -55,7 +57,7 @@ public class Employee {
         return firstName;
     }
 // cannot be null or empty, cannot be less than 2 chars or more than 20
-    public final void setFirstName(String firstName) {
+    public final void setFirstName(String firstName) throws IllegalArgumentException {
        if(firstName == null || firstName.isEmpty() ||
                firstName.length() < MIN_NAME_LENGTH || firstName.length() > MAX_NAME_LENGTH)
             throw new IllegalArgumentException("Sorry name cannot be less than 2 characters or more than 20");
@@ -66,7 +68,7 @@ public class Employee {
         return lastName;
     }
 
-    public final void setLastName(String lastName) {
+    public final void setLastName(String lastName) throws IllegalArgumentException {
          if(lastName == null || lastName.isEmpty() ||
                lastName.length() < MIN_NAME_LENGTH || lastName.length() > MAX_NAME_LENGTH)
             throw new IllegalArgumentException("Sorry name cannot be less than 2 characters or more than 20");
